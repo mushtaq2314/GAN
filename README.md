@@ -35,6 +35,7 @@ path = kagglehub.dataset_download("jessicali9530/celeba-dataset")
 ## GAN Architecture
 
 The Generative Adversarial Network consists of two primary components: the Generator and the Discriminator.
+![GAN Process](image.png)
 
 ### Generator
 
