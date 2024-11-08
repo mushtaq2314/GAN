@@ -102,4 +102,51 @@ class Discriminator(nn.Module):
     def forward(self, input):
         return self.main(input).view(-1)
 ```
+## Training Objective
+
+The training process involves two competing networks: the Generator and the Discriminator. Each has its own loss function and role in the GAN.
+
+### Generator Loss
+
+The goal of the Generator is to produce images that can fool the Discriminator. It minimizes the following loss:
+
+**Formula**:
+\[
+\mathcal{L}_G = -\mathbb{E}_{z \sim p_z(z)} [\log(D(G(z)))]
+\]
+
+- **Explanation**:
+  - \( G(z) \): The generated image from a random noise vector \( z \).
+  - \( D(G(z)) \): The probability assigned by the Discriminator that the generated image is real.
+
+- This loss encourages the Generator to produce images that are more likely to be classified as real by the Discriminator.
+
+### Discriminator Loss
+
+The Discriminator’s goal is to correctly classify real images as real and fake images as fake. Its loss is defined as:
+
+**Formula**:
+\[
+\mathcal{L}_D = -\mathbb{E}_{x \sim p_{data}(x)} [\log(D(x))] - \mathbb{E}_{z \sim p_z(z)} [\log(1 - D(G(z)))]
+\]
+
+- **Explanation**:
+  - \( D(x) \): The probability that a real image \( x \) is real.
+  - \( 1 - D(G(z)) \): The probability that a generated image \( G(z) \) is fake.
+
+- The Discriminator tries to maximize the probability of correctly classifying both real and fake images.
+
+### Training Process
+
+1. **Update the Discriminator**:
+   - Train the Discriminator to maximize its ability to distinguish between real and fake images.
+
+2. **Update the Generator**:
+   - Train the Generator to minimize its loss by generating images that can fool the Discriminator.
+
+3. **Optimization**:
+   - Use alternating updates between the Generator and Discriminator with optimizers like Adam.
+
+4. **Stability**:
+   - Techniques like Wasserstein loss with gradient penalty or label smoothing are used to stabilize training and avoid mode collapse.
 
