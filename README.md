@@ -151,3 +151,15 @@ The Discriminator’s goal is to correctly classify real images as real and fake
 4. **Stability**:
    - Techniques like Wasserstein loss with gradient penalty or label smoothing are used to stabilize training and avoid mode collapse.
 
+## Acknowledgments
+
+This project was made possible thanks to the following:
+
+- **CelebA Dataset**: The [CelebFaces Attributes Dataset (CelebA)](https://mmlab.ie.cuhk.edu.hk/projects/CelebA.html) provided by the Multimedia Laboratory (MMLab) at The Chinese University of Hong Kong.
+- **GAN Concept**: Inspired by the original paper *Generative Adversarial Networks* by Ian Goodfellow et al.
+- **PyTorch Framework**: Leveraged PyTorch for model implementation and training.
+- **Kaggle**: Used Kaggle for downloading and hosting the CelebA dataset.
+- **Community Contributions**: Thanks to the open-source community for tutorials, blogs, and guides that aided this project.
+
+---
+
